@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz - Quale VR è giusto per te?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+   <div class="animated-bg"></div>
+  
+   <header>
+    <a href="index.html" class="logo">VR</a>
+    <div class="dropdown">
+      <button class="dropbtn">Menu</button>
+      <div class="dropdown-content">
+        <a href="storia.html">Storia</a>
+        <a href="giochi.html">Giochi</a>
+        <a href="headset.html">Headset</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="contatti.html">Contatti</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <form id="quiz-form" class="quiz-form">
+      <div class="quiz-question">
+        <p>Hai un PC da gaming potente?</p>
+        <input type="radio" id="q1-yes" name="q1" value="pcvr" required />
+        <label for="q1-yes">Sì</label>
+        <input type="radio" id="q1-no" name="q1" value="standalone" />
+        <label for="q1-no">No</label>
+      </div>
+
+      <div class="quiz-question">
+        <p>Pianifichi di usarlo per attività fisica o giochi in movimento?</p>
+        <input type="radio" id="q2-yes" name="q2" value="standalone" required />
+        <label for="q2-yes">Sì</label>
+        <input type="radio" id="q2-no" name="q2" value="pcvr" />
+        <label for="q2-no">No</label>
+      </div>
+
+      <div class="quiz-question">
+        <p>Vuoi giocare a titoli con grafica molto avanzata?</p>
+        <input type="radio" id="q3-yes" name="q3" value="pcvr" required />
+        <label for="q3-yes">Sì</label>
+        <input type="radio" id="q3-no" name="q3" value="standalone" />
+        <label for="q3-no">No</label>
+      </div>
+
+      <div class="quiz-question">
+        <p>Ti dà fastidio usare cavi o dover collegare dispositivi?</p>
+        <input type="radio" id="q4-yes" name="q4" value="standalone" required />
+        <label for="q4-yes">Sì</label>
+        <input type="radio" id="q4-no" name="q4" value="pcvr" />
+        <label for="q4-no">No</label>
+      </div>
+
+      <div class="quiz-question">
+        <p>Ti interessa portarlo facilmente in giro o usarlo in spazi diversi?</p>
+        <input type="radio" id="q5-yes" name="q5" value="standalone" required />
+        <label for="q5-yes">Sì</label>
+        <input type="radio" id="q5-no" name="q5" value="pcvr" />
+        <label for="q5-no">No</label>
+      </div>
+
+      <button type="submit" class="submit-btn">Scopri il tuo visore ideale</button>
+    </form>
+
+    <div id="result"></div>
+
+    <div class="contact-image">
+      <img src="immagini/quizImage.webp" alt="Immagine quiz" />
+    </div>
+
+  </main>
+
+  <footer>
+    <a href="https://www.instagram.com/astrit_junior?igsh=MXJrZzB3cnRsZGhpNw%3D%3D&utm_source=qr" class="contact-button">Il mio profilo</a>
+    <p>&copy; 2025 Astrit Junior Mehmeti. Tutti i diritti riservati.</p>
+  </footer>
+
+  <script>
+    document.getElementById('quiz-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = new FormData(e.target);
+      const answers = [...form.values()];
+      let pcvr = 0;
+      let standalone = 0;
+
+      answers.forEach(answer => {
+        if (answer === "pcvr") pcvr++;
+        else if (answer === "standalone") standalone++;
+      });
+
+      const resultText = pcvr > standalone
+        ? "Ti consigliamo un visore PCVR!"
+        : "Ti consigliamo un visore Standalone!";
+      document.getElementById("result").innerText = resultText;
+    });
+  </script>
+
+</body>
+</html>
