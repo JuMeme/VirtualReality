@@ -436,7 +436,7 @@ class WelcomePopup {
         wrapper.innerHTML = `
             <div class="popup-content">
                 <h3>Prima volta qui?</h3>
-                <p>Conosci la differenza tra i visori standalone e PCVR?</p>
+                <p>Ecco un video per capire le principali differenze.</p>
                 <div class="video-preview">
                     <iframe src="https://www.youtube.com/embed/82vud7ERKZ0?si=IQoi_TvepdwQiLc6" title="VR Headsets" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
@@ -507,4 +507,5 @@ class HelpFAB {
         if (btn) btn.addEventListener('click', close);
     }
 }
+
 
